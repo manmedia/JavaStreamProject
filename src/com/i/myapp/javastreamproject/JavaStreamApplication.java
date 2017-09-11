@@ -10,23 +10,30 @@ import java.util.stream.Collectors;
 public class JavaStreamApplication {
 
 	
-	public static void main (String[] args) {
+	public static void main (String[] args) {	
 		
+		Employee emp1 = new Employee(Department.MMA, "Scott Adkins");
+		Employee emp2 = new Employee(Department.MMA, "Michael Jay White");
+		Employee emp3 = new Employee(Department.MMA, "Tony Ja");
+		Employee emp4 = new Employee(Department.ARTS, "Harrison Ford");
+		Employee emp5 = new Employee(Department.NATURAL_HISTORY, "David Attenborough");
+		Employee emp6 = new Employee(Department.ARTS, "TOMY LEE JONES");
+		Employee emp7 = new Employee(Department.ARTS, "CHRISTINA AMANPOOR");
+		Employee emp8 = new Employee(Department.PHYSICS, "Stephen Hawkins");
 		
-		List<String> x = new ArrayList();
+		List<Employee> empz = new ArrayList<>();
+		empz.add(emp1);
+		empz.add(emp2);
+		empz.add(emp3);
+		empz.add(emp4);
+		empz.add(emp5);
+		empz.add(emp6);
+		empz.add(emp7);
+		empz.add(emp8);
 		
-		x.add("Red");
-		x.add("Green");
-		x.add("Blue");
-		x.add("Yello");
-		x.add("Pinapple");
-		x.add("Watermelon");
-		x.add("Satsuma");
-		
-		System.out.println(x.toString());
-//		/Map<Boolean, List<String>> _x = x.stream().collect(Collectors.groupingBy(String::valueOf));
-		
-		System.out.println(_x.toString());
+		Map<Department, List<Employee>> groupedEmpz = empz.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+
+		System.out.println(groupedEmpz);
 		
 	}
 }
